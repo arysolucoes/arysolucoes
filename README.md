@@ -27,3 +27,33 @@ int main() {
     return 0;
 }
 ```
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+// TAIL RECURSION
+uint32_t factTR(uint32_t n, uint32_t a) {
+    if (n <= 1) return a;
+    else return factTR(n-1, n * a);
+}
+
+uint32_t factT(uint32_t n) {
+    return factTR(n,1);
+}
+
+// nomal recursion
+uint32_t fact(uint32_t n) {
+    if (n <= 1) return 1;
+    else return n* fact(n-1);
+}
+
+
+int main() {
+    uint32_t number = 10;
+    printf("the factorial of %d is %d\n",number,fact(number));
+    printf("the factorial of %d is %d\n",number,factT(number));
+
+    return 0;
+}
+```
